@@ -1,0 +1,46 @@
+tested:
+    inconsistent __args__ beetwen collections.abc.Callable and typing.Callable
+    --------------------------------------------------------------------------
+    As I understand it, in the tab from the table with changes from 3.9 to
+    3.10 there should be a difference between collections.abc.Callable[[int,
+    int], int] and typing.Callable[[int, int], int]. But in standard such
+    problem was already resolved, so both interpreters passed the test.
+    I also tested the new template specifications - ParamSec, TypeVar for
+    these modules, but there is a problem connecting them to test_run, so I
+    ran them separately.
+
+run:
+    python inconsistent_args_run.py
+
+expected:
+    test_inconsistent (inconsistent_args_tests.InconsistentArgsTest)
+    Testing two ways of getting a parametrised Callable have inconsistent __args__ ... ok
+    test_paramspec_typevar (inconsistent_args_tests.InconsistentArgsTest)
+    Testing collections.abc.Callable supporting ParamSpec and TypeVar ... ok
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.000s
+
+    OK
+
+Cpython:
+    test_inconsistent (inconsistent_args_tests.InconsistentArgsTest)
+    Testing two ways of getting a parametrised Callable have inconsistent __args__ ... ok
+    test_paramspec_typevar (inconsistent_args_tests.InconsistentArgsTest)
+    Testing collections.abc.Callable supporting ParamSpec and TypeVar ... ok
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.000s
+
+    OK
+
+Pypy:
+    test_inconsistent (inconsistent_args_tests.InconsistentArgsTest)
+    Testing two ways of getting a parametrised Callable have inconsistent __args__ ... ok
+    test_paramspec_typevar (inconsistent_args_tests.InconsistentArgsTest)
+    Testing collections.abc.Callable supporting ParamSpec and TypeVar ... skipped 'since 10th version'
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.000s
+
+    OK (skipped=1)

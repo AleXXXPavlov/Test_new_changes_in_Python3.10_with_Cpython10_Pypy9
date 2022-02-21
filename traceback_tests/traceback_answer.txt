@@ -1,0 +1,159 @@
+tested:
+    [traceback]
+        format_exception_only
+        format_exception
+        print_exception
+    --------------------------------------------------------------------------
+    Can now take an exception object as a positional-only argument.
+
+run:
+    python traceback_run.py
+
+    python -m unittest format_exc_only_tests.py
+    python -m unittest format_exc_tests.py
+    python -m unittest print_exception.py
+
+expected:
+    test_new_arg_name (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new name for first parameter in method format_exception_only. ... ok
+    test_new_calling_style (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new opportunity that an exception object can be passed ... ok
+    test_new_arg_name (format_exc_tests.FormatExcTest)
+    Testing new name for first parameter in method format_exception. ... ok
+    test_new_calling_style (format_exc_tests.FormatExcTest)
+    Testing new opportunity that an exception object can be passed ... ok
+    test_new_arg_name (print_exc_tests.PrintExceptionTest)
+    Testing new name for first parameter in method print_exception. ... ok
+    test_new_calling_style (print_exc_tests.PrintExceptionTest)
+    Testing new opportunity that an exception object can be passed ... ok
+
+    ----------------------------------------------------------------------
+    Ran 6 tests in 0.003s
+
+    OK
+
+Cpython:
+    test_new_arg_name (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new name for first parameter in method format_exception_only. ... ok
+    test_new_calling_style (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new opportunity that an exception object can be passed ... ok
+    test_new_arg_name (format_exc_tests.FormatExcTest)
+    Testing new name for first parameter in method format_exception. ... ok
+    test_new_calling_style (format_exc_tests.FormatExcTest)
+    Testing new opportunity that an exception object can be passed ... ok
+    test_new_arg_name (print_exc_tests.PrintExceptionTest)
+    Testing new name for first parameter in method print_exception. ... ok
+    test_new_calling_style (print_exc_tests.PrintExceptionTest)
+    Testing new opportunity that an exception object can be passed ... ok
+
+    ----------------------------------------------------------------------
+    Ran 6 tests in 0.003s
+
+    OK
+
+Pypy:
+    test_new_arg_name (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new name for first parameter in method format_exception_only. ... FAIL
+    test_new_calling_style (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new opportunity that an exception object can be passed ... ERROR
+    test_new_arg_name (format_exc_tests.FormatExcTest)
+    Testing new name for first parameter in method format_exception. ... FAIL
+    test_new_calling_style (format_exc_tests.FormatExcTest)
+    Testing new opportunity that an exception object can be passed ... ERROR
+    test_new_arg_name (print_exc_tests.PrintExceptionTest)
+    Testing new name for first parameter in method print_exception. ... ERROR
+    test_new_calling_style (print_exc_tests.PrintExceptionTest)
+    Testing new opportunity that an exception object can be passed ... ERROR
+
+    ======================================================================
+    ERROR: test_new_calling_style (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new opportunity that an exception object can be passed
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/format_exc_only_tests.py", line 17, in test_new_calling_style
+        num1 / num2
+    ZeroDivisionError: division by zero
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/format_exc_only_tests.py", line 20, in test_new_calling_style
+        traceback_new_out: list = format_exception_only(e)
+    TypeError: format_exception_only() missing 1 required positional argument: 'value'
+
+    ======================================================================
+    ERROR: test_new_calling_style (format_exc_tests.FormatExcTest)
+    Testing new opportunity that an exception object can be passed
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/format_exc_tests.py", line 15, in test_new_calling_style
+        chr(-97)
+    ValueError: chr() arg not in range(0x110000)
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/format_exc_tests.py", line 18, in test_new_calling_style
+        traceback_new_out: list = format_exception(e)
+    TypeError: format_exception() missing 2 required positional arguments: 'value' and 'tb'
+
+    ======================================================================
+    ERROR: test_new_arg_name (print_exc_tests.PrintExceptionTest)
+    Testing new name for first parameter in method print_exception.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/print_exc_tests.py", line 14, in setUp
+        "text" + 10
+    TypeError: can only concatenate str (not "int") to str
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/print_exc_tests.py", line 18, in setUp
+        print_exception(e, file=exc_file)
+    TypeError: print_exception() missing 2 required positional arguments: 'value' and 'tb'
+
+    ======================================================================
+    ERROR: test_new_calling_style (print_exc_tests.PrintExceptionTest)
+    Testing new opportunity that an exception object can be passed
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/print_exc_tests.py", line 14, in setUp
+        "text" + 10
+    TypeError: can only concatenate str (not "int") to str
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/print_exc_tests.py", line 18, in setUp
+        print_exception(e, file=exc_file)
+    TypeError: print_exception() missing 2 required positional arguments: 'value' and 'tb'
+
+    ======================================================================
+    FAIL: test_new_arg_name (format_exc_only_tests.FormatExcOnlyTest)
+    Testing new name for first parameter in method format_exception_only.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/format_exc_only_tests.py", line 33, in test_new_arg_name
+        self.assertEqual(check_name, "exc")
+    AssertionError: 'etype' != 'exc'
+    - etype
+    + exc
+
+
+    ======================================================================
+    FAIL: test_new_arg_name (format_exc_tests.FormatExcTest)
+    Testing new name for first parameter in method format_exception.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests/format_exc_tests.py", line 30, in test_new_arg_name
+        self.assertEqual(check_name, "exc")
+    AssertionError: 'etype' != 'exc'
+    - etype
+    + exc
+
+
+    ----------------------------------------------------------------------
+    Ran 6 tests in 0.002s
+
+    FAILED (failures=2, errors=4)

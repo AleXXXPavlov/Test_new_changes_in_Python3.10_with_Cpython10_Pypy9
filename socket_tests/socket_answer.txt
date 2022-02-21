@@ -1,0 +1,73 @@
+tested:
+    [socket]
+        htons
+        ntohs
+    --------------------------------------------------------------------------
+    Raise OverflowError instead of DeprecationWarning the given parameter
+    will not fit in a 16-bit unsigned integer.
+
+run:
+    python socket_run.py
+
+expected:
+    test_false_htons (htons_tests.HtonsTest)
+    Testing throwing OverflowError exception if data does not ... ok
+    test_true_htons (htons_tests.HtonsTest)
+    Testing correct working if data fit in a 16-bit ... expected failure
+    test_false_ntohs (ntohs_tests.NtohsTest)
+    Testing throwing OverflowError exception if data does not ... ok
+    test_true_ntohs (ntohs_tests.NtohsTest)
+    Testing correct working if data fit in a 16-bit ... expected failure
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.000s
+
+    OK (expected failures=2)
+
+Cpython:
+    test_false_htons (htons_tests.HtonsTest)
+    Testing throwing OverflowError exception if data does not ... ok
+    test_true_htons (htons_tests.HtonsTest)
+    Testing correct working if data fit in a 16-bit ... expected failure
+    test_false_ntohs (ntohs_tests.NtohsTest)
+    Testing throwing OverflowError exception if data does not ... ok
+    test_true_ntohs (ntohs_tests.NtohsTest)
+    Testing correct working if data fit in a 16-bit ... expected failure
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.000s
+
+    OK (expected failures=2)
+
+Pypy:
+    test_false_htons (htons_tests.HtonsTest)
+    Testing throwing OverflowError exception if data does not ... FAIL
+    test_true_htons (htons_tests.HtonsTest)
+    Testing correct working if data fit in a 16-bit ... expected failure
+    test_false_ntohs (ntohs_tests.NtohsTest)
+    Testing throwing OverflowError exception if data does not ... FAIL
+    test_true_ntohs (ntohs_tests.NtohsTest)
+    Testing correct working if data fit in a 16-bit ... expected failure
+
+    ======================================================================
+    FAIL: test_false_htons (htons_tests.HtonsTest)
+    Testing throwing OverflowError exception if data does not
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/socket_tests/htons_tests.py", line 29, in test_false_htons
+        int32_network = htons(int32_host)
+    AssertionError: OverflowError not raised
+
+    ======================================================================
+    FAIL: test_false_ntohs (ntohs_tests.NtohsTest)
+    Testing throwing OverflowError exception if data does not
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/socket_tests/ntohs_tests.py", line 27, in test_false_ntohs
+        int32_host = ntohs(self.int32_bit)
+    AssertionError: OverflowError not raised
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    FAILED (failures=2, expected failures=2)

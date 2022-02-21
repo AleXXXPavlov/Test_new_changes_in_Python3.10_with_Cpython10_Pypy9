@@ -1,0 +1,46 @@
+tested:
+    match-case
+    --------------------------------------------------------------------------
+    New pattern matching for Python
+
+run:
+    python match_run.py
+
+expected:
+    test_complexPatterns (match_tests.MatchTest)
+    Testing complex patterns ... ok
+    test_simpleMatch (match_tests.MatchTest)
+    Testing simple example for new pattern matching in Python ... ok
+    test_withClass (match_tests.MatchTest)
+    Testing pattern matching with classes and guard ... ok
+    test_withDict (match_tests.MatchTest)
+    Testing dictionary matching patterns ... expected failure
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    OK (expected failures=1)
+
+Cpython:
+    test_complexPatterns (match_tests.MatchTest)
+    Testing complex patterns ... ok
+    test_simpleMatch (match_tests.MatchTest)
+    Testing simple example for new pattern matching in Python ... ok
+    test_withClass (match_tests.MatchTest)
+    Testing pattern matching with classes and guard ... ok
+    test_withDict (match_tests.MatchTest)
+    Testing dictionary matching patterns ... expected failure
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    OK (expected failures=1)
+
+Pypy:
+    Traceback (most recent call last):
+  File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/match_tests/match_run.py", line 1, in <module>
+    import match_tests
+  File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/match_tests/match_tests.py", line 16
+    match param:
+          ^
+SyntaxError: invalid syntax
