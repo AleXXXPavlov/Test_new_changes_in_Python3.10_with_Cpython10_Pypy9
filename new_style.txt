@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/traceback_tests.py", line 67, in setUp
+    "text" + 10
+TypeError: can only concatenate str (not "int") to str
