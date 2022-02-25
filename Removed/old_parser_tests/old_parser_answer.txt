@@ -1,0 +1,45 @@
+tested:
+    Parser module, which was deprecated in 3.9 due to the switch to the
+    new PEG parser, as well as all the C source and header files that
+    were only being used by the old parser, including node.h,
+    parser.h, graminit.h and grammar.h.
+
+
+run:
+    python old_parser_run.py
+
+expected:
+    test_exist_parser (parser_exist_tests.ParserExistTest)
+    Testing removing outdated module named parser replace new parsing module with PEG ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+Cpython:
+    test_exist_parser (parser_exist_tests.ParserExistTest)
+    Testing removing outdated module named parser replace new parsing module with PEG ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+Pypy:
+    test_exist_parser (parser_exist_tests.ParserExistTest)
+    Testing removing outdated module named parser replace new parsing module with PEG ... FAIL
+
+    ======================================================================
+    FAIL: test_exist_parser (parser_exist_tests.ParserExistTest)
+    Testing removing outdated module named parser replace new parsing module with PEG
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/old_parser_tests/parser_exist_tests.py", line 12, in test_exist_parser
+        import parser
+    AssertionError: ModuleNotFoundError not raised
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)

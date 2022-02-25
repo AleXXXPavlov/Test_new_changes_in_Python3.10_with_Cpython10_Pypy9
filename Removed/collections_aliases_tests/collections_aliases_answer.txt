@@ -1,0 +1,47 @@
+tested:
+    Deprecated aliases to Collections Abstract Base Classes from the collections module
+
+run:
+    python collections_aliases_run.py
+
+expected:
+    test_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module ... ok
+    test_not_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module ... ok
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.002s
+
+    OK
+
+Cpython:
+    test_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module ... ok
+    test_not_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module ... ok
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.002s
+
+    OK
+
+Pypy:
+    test_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module ... FAIL
+    test_not_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module ... ok
+
+    ======================================================================
+    FAIL: test_import_error (aliases_tests.AliasExistTest)
+    Testing moving Collections Abstract Base Classes to the collections.abc module
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/collections_aliases_tests/aliases_tests.py", line 13, in test_import_error
+        from collections import Hashable
+    AssertionError: ImportError not raised
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.001s
+
+    FAILED (failures=1)

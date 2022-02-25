@@ -1,0 +1,41 @@
+tested:
+    The ParserBase.error() method from the private and undocumented _markupbase module.
+
+run:
+    python parser_base_run.py
+
+expected:
+    test_remove_error (parser_tests.ParserBaseTest)
+    Testing fact of removing the ParserBase.error() from ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+Cpython:
+    test_remove_error (parser_tests.ParserBaseTest)
+    Testing fact of removing the ParserBase.error() from ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+Pypy:
+    test_remove_error (parser_tests.ParserBaseTest)
+    Testing fact of removing the ParserBase.error() from ... FAIL
+
+    ======================================================================
+    FAIL: test_remove_error (parser_tests.ParserBaseTest)
+    Testing fact of removing the ParserBase.error() from
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/parser_base_tests/parser_tests.py", line 11, in test_remove_error
+        self.assertFalse("error" in dir(ParserBase))
+    AssertionError: True is not false
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)

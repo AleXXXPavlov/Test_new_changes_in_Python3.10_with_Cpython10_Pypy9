@@ -1,0 +1,177 @@
+tested:
+    special methods__int__, __float__, __floordiv__, __mod__, __divmod__,
+    __rfloordiv__, __rmod__ and __rdivmod__ of the complex class
+
+run:
+    python complex_run.py
+
+expected:
+    test_converting_float (still_error_tests.ComplexErrorTest)
+    Testing that converting with float raise a TypeError with complex type. ... ok
+    test_converting_int (still_error_tests.ComplexErrorTest)
+    Testing that converting with int raise a TypeError with complex type. ... ok
+    test_function_divmod (still_error_tests.ComplexErrorTest)
+    Testing that function - divmod() raise a TypeError with complex type. ... ok
+    test_operation_div (still_error_tests.ComplexErrorTest)
+    Testing that operation like // raise a TypeError with complex type. ... ok
+    test_operation_mod (still_error_tests.ComplexErrorTest)
+    Testing that operation like % raise a TypeError with complex type. ... ok
+    test_removing_divmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __divmod__ of complex type in Python ... ok
+    test_removing_float (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __float__ of complex type in Python ... ok
+    test_removing_floordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __floordiv__ of complex type in Python ... ok
+    test_removing_int (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __int__ of complex type in Python ... ok
+    test_removing_mod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __mod__ of complex type in Python ... ok
+    test_removing_rdivmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rdivmod__ of complex type in Python ... ok
+    test_removing_rfloordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rfloordiv__ of complex type in Python ... ok
+    test_removing_rmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rmod__ of complex type in Python ... ok
+
+    ----------------------------------------------------------------------
+    Ran 13 tests in 0.003s
+
+    OK
+
+Cpython:
+    test_converting_float (still_error_tests.ComplexErrorTest)
+    Testing that converting with float raise a TypeError with complex type. ... ok
+    test_converting_int (still_error_tests.ComplexErrorTest)
+    Testing that converting with int raise a TypeError with complex type. ... ok
+    test_function_divmod (still_error_tests.ComplexErrorTest)
+    Testing that function - divmod() raise a TypeError with complex type. ... ok
+    test_operation_div (still_error_tests.ComplexErrorTest)
+    Testing that operation like // raise a TypeError with complex type. ... ok
+    test_operation_mod (still_error_tests.ComplexErrorTest)
+    Testing that operation like % raise a TypeError with complex type. ... ok
+    test_removing_divmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __divmod__ of complex type in Python ... ok
+    test_removing_float (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __float__ of complex type in Python ... ok
+    test_removing_floordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __floordiv__ of complex type in Python ... ok
+    test_removing_int (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __int__ of complex type in Python ... ok
+    test_removing_mod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __mod__ of complex type in Python ... ok
+    test_removing_rdivmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rdivmod__ of complex type in Python ... ok
+    test_removing_rfloordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rfloordiv__ of complex type in Python ... ok
+    test_removing_rmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rmod__ of complex type in Python ... ok
+
+    ----------------------------------------------------------------------
+    Ran 13 tests in 0.003s
+
+    OK
+
+Pypy:
+    test_converting_float (still_error_tests.ComplexErrorTest)
+    Testing that converting with float raise a TypeError with complex type. ... ok
+    test_converting_int (still_error_tests.ComplexErrorTest)
+    Testing that converting with int raise a TypeError with complex type. ... ok
+    test_function_divmod (still_error_tests.ComplexErrorTest)
+    Testing that function - divmod() raise a TypeError with complex type. ... ok
+    test_operation_div (still_error_tests.ComplexErrorTest)
+    Testing that operation like // raise a TypeError with complex type. ... ok
+    test_operation_mod (still_error_tests.ComplexErrorTest)
+    Testing that operation like % raise a TypeError with complex type. ... ok
+    test_removing_divmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __divmod__ of complex type in Python ... FAIL
+    test_removing_float (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __float__ of complex type in Python ... FAIL
+    test_removing_floordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __floordiv__ of complex type in Python ... FAIL
+    test_removing_int (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __int__ of complex type in Python ... FAIL
+    test_removing_mod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __mod__ of complex type in Python ... FAIL
+    test_removing_rdivmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rdivmod__ of complex type in Python ... FAIL
+    test_removing_rfloordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rfloordiv__ of complex type in Python ... FAIL
+    test_removing_rmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rmod__ of complex type in Python ... FAIL
+
+    ======================================================================
+    FAIL: test_removing_divmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __divmod__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 42, in test_removing_divmod
+        func = self.cmplx.__divmod__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_float (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __float__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 21, in test_removing_float
+        func = self.cmplx.__float__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_floordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __floordiv__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 28, in test_removing_floordiv
+        func = self.cmplx.__floordiv__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_int (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __int__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 14, in test_removing_int
+        func = self.cmplx.__int__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_mod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __mod__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 35, in test_removing_mod
+        func = self.cmplx.__mod__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_rdivmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rdivmod__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 63, in test_removing_rdivmod
+        func = self.cmplx.__rdivmod__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_rfloordiv (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rfloordiv__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 49, in test_removing_rfloordiv
+        func = self.cmplx.__rfloordiv__
+    AssertionError: AttributeError not raised
+
+    ======================================================================
+    FAIL: test_removing_rmod (remove_tests.ComplexRemoveTest)
+    Testing fact of removing __rmod__ of complex type in Python
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/complex_test/remove_tests.py", line 56, in test_removing_rmod
+        func = self.cmplx.__rmod__
+    AssertionError: AttributeError not raised
+
+    ----------------------------------------------------------------------
+    Ran 13 tests in 0.002s
+
+    FAILED (failures=8)

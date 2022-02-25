@@ -1,0 +1,44 @@
+tested:
+    The loop parameter has been removed from most of asyncio‘s high-level API
+    following deprecation in Python 3.8
+
+run:
+    python asyncio_loop_run.py
+
+expected:
+    test_removing_loop (asyncio_loop_tests.AsyncioLoopTest)
+    Testing that the loop parameter has been removed from most of asyncio‘s ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+
+Cpython:
+    test_removing_loop (asyncio_loop_tests.AsyncioLoopTest)
+    Testing that the loop parameter has been removed from most of asyncio‘s ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+
+Pypy:
+    test_removing_loop (asyncio_loop_tests.AsyncioLoopTest)
+    Testing that the loop parameter has been removed from most of asyncio‘s ... FAIL
+
+    ======================================================================
+    FAIL: test_removing_loop (asyncio_loop_tests.AsyncioLoopTest)
+    Testing that the loop parameter has been removed from most of asyncio‘s
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/asyncio_loop_tests/asyncio_loop_tests.py", line 12, in test_removing_loop
+        self.assertFalse('loop' in getfullargspec(asyncio.sleep).kwonlyargs)
+    AssertionError: True is not false
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)

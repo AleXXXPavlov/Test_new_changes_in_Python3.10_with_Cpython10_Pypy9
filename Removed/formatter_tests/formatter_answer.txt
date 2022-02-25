@@ -1,0 +1,44 @@
+tested:
+    The formatter module was deprecated in Python 3.4. It is somewhat
+     obsolete, little used, and not tested
+
+
+run:
+    python formatter_run.py
+
+expected:
+    test_exist_parser (formatter_tests.FormatterTest)
+    Testing removing outdated module named formatter replace new parsing module with PEG ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+Cpython:
+    test_exist_parser (formatter_tests.FormatterTest)
+    Testing removing outdated module named formatter replace new parsing module with PEG ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+Pypy:
+    test_exist_parser (formatter_tests.FormatterTest)
+    Testing removing outdated module named formatter replace new parsing module with PEG ... FAIL
+
+    ======================================================================
+    FAIL: test_exist_parser (formatter_tests.FormatterTest)
+    Testing removing outdated module named formatter replace new parsing module with PEG
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/Removed/formatter_tests/formatter_tests.py", line 12, in test_exist_parser
+        import formatter
+    AssertionError: ModuleNotFoundError not raised
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+
