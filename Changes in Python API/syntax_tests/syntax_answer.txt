@@ -39,33 +39,6 @@ Cpython:
     OK (expected failures=1)
 
 Pypy:
-    tested:
-    match-case
-    --------------------------------------------------------------------------
-    New pattern matching for Python
-
-run:
-    python syntax_run.py
-
-expected:
-    test_keywords (syntax_tests.SyntaxTest)
-    Testing syntax of all keywords with numeric literal ... ok
-
-    ----------------------------------------------------------------------
-    Ran 1 test in 0.003s
-
-    OK
-
-Cpython:
-    test_keywords (syntax_tests.SyntaxTest)
-    Testing syntax of all keywords with numeric literal ... ok
-
-    ----------------------------------------------------------------------
-    Ran 1 test in 0.003s
-
-    OK
-
-Pypy:
     test_keywords (syntax_tests.SyntaxTest)
     Testing syntax of all keywords with numeric literal ... FAIL
 

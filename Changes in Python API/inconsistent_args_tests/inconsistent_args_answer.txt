@@ -10,7 +10,8 @@ tested:
     ran them separately.
 
 run:
-    python inconsistent_args_run.py
+    python inconsistent_args
+    _run.py
 
 expected:
     test_inconsistent (inconsistent_args_tests.InconsistentArgsTest)
