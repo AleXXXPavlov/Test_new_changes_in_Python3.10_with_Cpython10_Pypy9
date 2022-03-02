@@ -1,0 +1,44 @@
+tested:
+    Parameter Specification Variables
+
+
+run:
+    python parameter_specific_run.py
+
+expected:
+    test_simple (paramspec_tests.GeneralTest)
+    Testing parameter specification variable as the first argument to Callable. ... ok
+    test_add (concatenate_tests.GeneralTest)
+    Testing Concatanate of using to type annotate a higher order callable ... ok
+    test_remove (concatenate_tests.GeneralTest)
+    Testing Concatanate of using to type annotate a higher order callable ... ok
+    test_transform (concatenate_tests.GeneralTest)
+    Testing Concatanate of using to type annotate a higher order callable ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.002s
+
+    OK
+
+Cpython:
+    test_simple (paramspec_tests.GeneralTest)
+    Testing parameter specification variable as the first argument to Callable. ... ok
+    test_add (concatenate_tests.GeneralTest)
+    Testing Concatanate of using to type annotate a higher order callable ... ok
+    test_remove (concatenate_tests.GeneralTest)
+    Testing Concatanate of using to type annotate a higher order callable ... ok
+    test_transform (concatenate_tests.GeneralTest)
+    Testing Concatanate of using to type annotate a higher order callable ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.002s
+
+    OK
+
+Pypy:
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/parameter_specification_tests/parametr_specification_run.py", line 1, in <module>
+        import concatenate_tests
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/parameter_specification_tests/concatenate_tests.py", line 3, in <module>
+        from typing import ParamSpec, Concatenate, TypeVar, Callable, Optional
+    ImportError: cannot import name 'ParamSpec' from 'typing' (/usr/lib/python3.9/typing.py)

@@ -1,0 +1,169 @@
+tested:
+    Syntax Errors
+    --------------------------------------------------------------------------
+    When parsing code that contains unclosed parentheses or brackets the
+    interpreter now includes the location of the unclosed bracket of
+    parentheses instead of displaying SyntaxError: unexpected EOF while
+    parsing or pointing to some incorrect location
+
+run:
+    python syntax_error_run.py
+
+expected:
+    test_with_brackets (syntax_error_tests.GeneralTest)
+    When parsing code that contains unclosed parentheses or brackets ... ok
+    test_with_comparison (syntax_error_tests.GeneralTest)
+    Testing usage of = instead of == in comparisons ... ok
+    test_with_mising_commas (syntax_error_tests.GeneralTest)
+    Testing with missing commas in collection literals and between expressions ... ok
+    test_with_missing_colon (syntax_error_tests.GeneralTest)
+    Testing with missing : before blocks ... ok
+    test_with_multiple_exception_types (syntax_error_tests.GeneralTest)
+    Testing with multiple exception types without parentheses ... ok
+    test_with_try (syntax_error_tests.GeneralTest)
+    Testing with try blocks without except or finally blocks: ... ok
+    test_with_unparenthesised_tuples (syntax_error_tests.GeneralTest)
+    Testing with unparenthesised tuples in comprehensions targets: ... ok
+
+    ----------------------------------------------------------------------
+    Ran 7 tests in 0.004s
+
+    OK
+
+Cpython:
+    test_with_brackets (syntax_error_tests.GeneralTest)
+    When parsing code that contains unclosed parentheses or brackets ... ok
+    test_with_comparison (syntax_error_tests.GeneralTest)
+    Testing usage of = instead of == in comparisons ... ok
+    test_with_mising_commas (syntax_error_tests.GeneralTest)
+    Testing with missing commas in collection literals and between expressions ... ok
+    test_with_missing_colon (syntax_error_tests.GeneralTest)
+    Testing with missing : before blocks ... ok
+    test_with_multiple_exception_types (syntax_error_tests.GeneralTest)
+    Testing with multiple exception types without parentheses ... ok
+    test_with_try (syntax_error_tests.GeneralTest)
+    Testing with try blocks without except or finally blocks: ... ok
+    test_with_unparenthesised_tuples (syntax_error_tests.GeneralTest)
+    Testing with unparenthesised tuples in comprehensions targets: ... ok
+
+    ----------------------------------------------------------------------
+    Ran 7 tests in 0.004s
+
+    OK
+
+Pypy:
+    test_with_brackets (syntax_error_tests.GeneralTest)
+    When parsing code that contains unclosed parentheses or brackets ... FAIL
+    test_with_comparison (syntax_error_tests.GeneralTest)
+    Testing usage of = instead of == in comparisons ... FAIL
+    test_with_mising_commas (syntax_error_tests.GeneralTest)
+    Testing with missing commas in collection literals and between expressions ... FAIL
+    test_with_missing_colon (syntax_error_tests.GeneralTest)
+    Testing with missing : before blocks ... FAIL
+    test_with_multiple_exception_types (syntax_error_tests.GeneralTest)
+    Testing with multiple exception types without parentheses ... ok
+    test_with_try (syntax_error_tests.GeneralTest)
+    Testing with try blocks without except or finally blocks: ... FAIL
+    test_with_unparenthesised_tuples (syntax_error_tests.GeneralTest)
+    Testing with unparenthesised tuples in comprehensions targets: ... FAIL
+
+    ======================================================================
+    FAIL: test_with_brackets (syntax_error_tests.GeneralTest)
+    When parsing code that contains unclosed parentheses or brackets
+    ----------------------------------------------------------------------
+      File "<string>", line 1
+        dct = 'a': 1, 'b': 2}
+            ^
+    SyntaxError: invalid syntax
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/syntax_error_tests/syntax_error_tests.py", line 15, in test_with_brackets
+        print(se.exception)
+    AssertionError: ".*unmatched '}'" does not match "invalid syntax (, line 1)"
+
+    ======================================================================
+    FAIL: test_with_comparison (syntax_error_tests.GeneralTest)
+    Testing usage of = instead of == in comparisons
+    ----------------------------------------------------------------------
+      File "<string>", line 1
+        if x = y:
+             ^
+    SyntaxError: invalid syntax
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/syntax_error_tests/syntax_error_tests.py", line 58, in test_with_comparison
+        compile("if x = y:\npass", "", "exec")
+    AssertionError: ".*Maybe you meant '==' or ':=' instead of '='?" does not match "invalid syntax (, line 1)"
+
+    ======================================================================
+    FAIL: test_with_mising_commas (syntax_error_tests.GeneralTest)
+    Testing with missing commas in collection literals and between expressions
+    ----------------------------------------------------------------------
+      File "<string>", line 1
+        items = {z: 1, y: 2 x: 3}
+                            ^
+    SyntaxError: invalid syntax
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/syntax_error_tests/syntax_error_tests.py", line 37, in test_with_mising_commas
+        compile("items = {z: 1, y: 2 x: 3}", "", "exec")
+    AssertionError: ".*Perhaps you forgot a comma?" does not match "invalid syntax (, line 1)"
+
+    ======================================================================
+    FAIL: test_with_missing_colon (syntax_error_tests.GeneralTest)
+    Testing with missing : before blocks
+    ----------------------------------------------------------------------
+      File "<string>", line 1
+        for i in range(5)
+                         ^
+    SyntaxError: invalid syntax
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/syntax_error_tests/syntax_error_tests.py", line 22, in test_with_missing_colon
+        compile("for i in range(5)\n\tpass", "", "exec")
+    AssertionError: ".*expected ':'" does not match "invalid syntax (, line 1)"
+
+    ======================================================================
+    FAIL: test_with_try (syntax_error_tests.GeneralTest)
+    Testing with try blocks without except or finally blocks:
+    ----------------------------------------------------------------------
+      File "<string>", line 3
+        y=5
+        ^
+    SyntaxError: invalid syntax
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/syntax_error_tests/syntax_error_tests.py", line 51, in test_with_try
+        compile("try:\n\tx=5\ny=5", "", "exec")
+    AssertionError: ".*expected 'except' or 'finally' block" does not match "invalid syntax (, line 3)"
+
+    ======================================================================
+    FAIL: test_with_unparenthesised_tuples (syntax_error_tests.GeneralTest)
+    Testing with unparenthesised tuples in comprehensions targets:
+    ----------------------------------------------------------------------
+      File "<string>", line 1
+        {x,y for x,y in zip('abcd', '1234')}
+             ^
+    SyntaxError: invalid syntax
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/syntax_error_tests/syntax_error_tests.py", line 30, in test_with_unparenthesised_tuples
+        compile("{x,y for x,y in zip('abcd', '1234')}", "", "eval")
+    AssertionError: ".*did you forget parentheses around the comprehension target?" does not match "invalid syntax (, line 1)"
+
+    ----------------------------------------------------------------------
+    Ran 7 tests in 0.006s
+
+    FAILED (failures=6)

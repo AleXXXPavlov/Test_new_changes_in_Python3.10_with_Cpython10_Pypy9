@@ -1,0 +1,40 @@
+tested:
+    TypeAlias
+    --------------------------------------------------------------------------
+    Explicit type alias in typing
+
+run:
+    python type_alias_run.py
+
+expected:
+    test_backward_compatibility (type_alias_tests.GeneralTest)
+    Testing implicit syntax (pre-existing) ... ok
+    test_functions (type_alias_tests.GeneralTest)
+    Testing type alias with functions ... ok
+    test_simple (type_alias_tests.GeneralTest)
+    Testing new explicit type alias with simple types and class ... ok
+
+    ----------------------------------------------------------------------
+    Ran 3 tests in 0.000s
+
+    OK
+
+Cpython:
+    test_backward_compatibility (type_alias_tests.GeneralTest)
+    Testing implicit syntax (pre-existing) ... ok
+    test_functions (type_alias_tests.GeneralTest)
+    Testing type alias with functions ... ok
+    test_simple (type_alias_tests.GeneralTest)
+    Testing new explicit type alias with simple types and class ... ok
+
+    ----------------------------------------------------------------------
+    Ran 3 tests in 0.000s
+
+Pypy:
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/type_alias_tests/type_alias_run.py", line 1, in <module>
+        import type_alias_tests
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/type_alias_tests/type_alias_tests.py", line 3, in <module>
+        from typing import TypeAlias
+    ImportError: cannot import name 'TypeAlias' from 'typing' (/usr/lib/python3.9/typing.py)
+

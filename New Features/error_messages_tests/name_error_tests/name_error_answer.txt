@@ -1,0 +1,57 @@
+tested:
+    Name Errors
+    --------------------------------------------------------------------------
+    When printing NameError raised by the interpreter, PyErr_Display() will
+    offer suggestions of similar variable names in the function that the
+    exception was raised from:
+
+run:
+    python name_error_run.py
+
+expected:
+    F
+    ======================================================================
+    FAIL: test_with_hard_name (__main__.GeneralTest)
+    Testing that when printing NameError raised by the interpreter, PyErr_Display()
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/name_error_tests/name_error_tests.py", line 12, in test_with_hard_name
+        compile("schwarzschild_black_hole = None\nschwarschild_black_hole", "", "exec")
+    AssertionError: NameError not raised
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+
+Cpython:
+    F
+    ======================================================================
+    FAIL: test_with_hard_name (__main__.GeneralTest)
+    Testing that when printing NameError raised by the interpreter, PyErr_Display()
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/name_error_tests/name_error_tests.py", line 12, in test_with_hard_name
+        compile("schwarzschild_black_hole = None\nschwarschild_black_hole", "", "exec")
+    AssertionError: NameError not raised
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+
+Pypy:
+    F
+    ======================================================================
+    FAIL: test_with_hard_name (__main__.GeneralTest)
+    Testing that when printing NameError raised by the interpreter, PyErr_Display()
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/name_error_tests/name_error_tests.py", line 12, in test_with_hard_name
+        compile("schwarzschild_black_hole = None\nschwarschild_black_hole", "", "exec")
+    AssertionError: NameError not raised
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.005s
+
+    FAILED (failures=1)

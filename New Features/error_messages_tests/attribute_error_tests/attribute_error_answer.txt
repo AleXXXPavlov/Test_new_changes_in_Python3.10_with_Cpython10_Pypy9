@@ -1,0 +1,74 @@
+tested:
+    Attribute Errors
+    --------------------------------------------------------------------------
+    When printing AttributeError, PyErr_Display() will offer suggestions of
+    similar attribute names in the object that the exception was raised from
+
+run:
+    python attribute_error_run.py
+
+expected:
+    test_with_namedtuple (attribute_error_tests.GeneralTest)
+    Testing When printing AttributeError, PyErr_Display() will offer ... FAIL
+
+    ======================================================================
+    FAIL: test_with_namedtuple (attribute_error_tests.GeneralTest)
+    Testing When printing AttributeError, PyErr_Display() will offer
+    ----------------------------------------------------------------------
+    AttributeError: module 'collections' has no attribute 'namedtoplo'
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/attribute_error_tests/attribute_error_tests.py", line 13, in test_with_namedtuple
+        with self.assertRaisesRegex(AttributeError, ".*Did you mean: 'namedtuple'?"):
+    AssertionError: ".*Did you mean: 'namedtuple'?" does not match "module 'collections' has no attribute 'namedtoplo'"
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+
+Cpython:
+    test_with_namedtuple (attribute_error_tests.GeneralTest)
+    Testing When printing AttributeError, PyErr_Display() will offer ... FAIL
+
+    ======================================================================
+    FAIL: test_with_namedtuple (attribute_error_tests.GeneralTest)
+    Testing When printing AttributeError, PyErr_Display() will offer
+    ----------------------------------------------------------------------
+    AttributeError: module 'collections' has no attribute 'namedtoplo'
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/attribute_error_tests/attribute_error_tests.py", line 13, in test_with_namedtuple
+        with self.assertRaisesRegex(AttributeError, ".*Did you mean: 'namedtuple'?"):
+    AssertionError: ".*Did you mean: 'namedtuple'?" does not match "module 'collections' has no attribute 'namedtoplo'"
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+
+Pypy:
+    test_with_namedtuple (attribute_error_tests.GeneralTest)
+    Testing When printing AttributeError, PyErr_Display() will offer ... FAIL
+
+    ======================================================================
+    FAIL: test_with_namedtuple (attribute_error_tests.GeneralTest)
+    Testing When printing AttributeError, PyErr_Display() will offer
+    ----------------------------------------------------------------------
+    AttributeError: module 'collections' has no attribute 'namedtoplo'
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/error_messages_tests/attribute_error_tests/attribute_error_tests.py", line 14, in test_with_namedtuple
+        exec("collections.namedtoplo")
+    AssertionError: ".*Did you mean: 'namedtuple'?" does not match "module 'collections' has no attribute 'namedtoplo'"
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)

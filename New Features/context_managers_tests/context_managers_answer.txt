@@ -1,0 +1,71 @@
+tested:
+    Several context managers
+    --------------------------------------------------------------------------
+    Using enclosing parentheses for continuation across multiple lines in context managers is now supported.
+
+run:
+    python context_managers_answer.py
+
+expected:
+    test_hard (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with many errors ... ok
+    test_with_class (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with class ... ok
+    test_with_erros (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with error ... ok
+    test_with_files (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with open ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    OK
+
+Cpython:
+    test_hard (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with many errors ... ok
+    test_with_class (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with class ... ok
+    test_with_erros (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with error ... ok
+    test_with_files (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with open ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    OK
+
+Pypy:
+    test_hard (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with many errors ... ERROR
+    test_with_class (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with class ... ok
+    test_with_erros (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with error ... ok
+    test_with_files (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with open ... ERROR
+
+    ======================================================================
+    ERROR: test_hard (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with many errors
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/context_managers_tests/context_managers_test.py", line 66, in test_hard
+        open("date/example1.txt", mode="r", encoding="locale") as file,
+    LookupError: unknown encoding: locale
+
+    ======================================================================
+    ERROR: test_with_files (context_managers_test.GeneralCase)
+    Simple testing new opportunity of several context managers with open
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/context_managers_tests/context_managers_test.py", line 21, in test_with_files
+        open("date/example1.txt", encoding="locale", mode="w") as file1,
+    LookupError: unknown encoding: locale
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    FAILED (errors=2)
+

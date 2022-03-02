@@ -1,0 +1,37 @@
+tested:
+    TypeGuard
+    --------------------------------------------------------------------------
+    A way for programs to influence conditional type narrowing employed
+        by a type checker based on runtime checks
+
+run:
+    python typeguard_run.py
+
+expected:
+    test_standard_type (typeguard_tests.GeneralTest)
+    Testing a way for programs to influence conditional type narrowing ... ok
+    test_with_add_param (typeguard_tests.GeneralTest)
+    Testing a way for programs to influence conditional type narrowing employed ... ok
+    test_with_class (typeguard_tests.GeneralTest) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 3 tests in 0.001s
+
+Cpython:
+    test_standard_type (typeguard_tests.GeneralTest)
+    Testing a way for programs to influence conditional type narrowing ... ok
+    test_with_add_param (typeguard_tests.GeneralTest)
+    Testing a way for programs to influence conditional type narrowing employed ... ok
+    test_with_class (typeguard_tests.GeneralTest) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 3 tests in 0.001s
+
+Pypy:
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/typeguard_tests/typeguard_run.py", line 1, in <module>
+        import typeguard_tests
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/typeguard_tests/typeguard_tests.py", line 2, in <module>
+        from typing import TypeGuard, TypeVar, Type, Any
+    ImportError: cannot import name 'TypeGuard' from 'typing' (/usr/lib/python3.9/typing.py)
+

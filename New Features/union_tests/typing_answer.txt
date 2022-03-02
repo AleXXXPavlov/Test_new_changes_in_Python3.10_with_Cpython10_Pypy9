@@ -1,0 +1,91 @@
+tested:
+    X | Y
+    --------------------------------------------------------------------------
+    Allow writing union types as X | Y
+
+run:
+    python typing_run.py
+
+expected:
+    test_equal_with_typing (typing_tests.GeneralTest)
+    The existing typing.Union and | syntax should be equivalent. ... ok
+    test_isinstance (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to isinstance as long as the Union ... ok
+    test_issubclass (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to issubclass as long as the Union ... ok
+    test_metaclass (typing_tests.GeneralTest)
+    Testing that in some situations, some exceptions will not be raised as expected. ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    OK
+
+Cpython:
+    test_equal_with_typing (typing_tests.GeneralTest)
+    The existing typing.Union and | syntax should be equivalent. ... FAIL
+    test_isinstance (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to isinstance as long as the Union ... ok
+    test_issubclass (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to issubclass as long as the Union ... ok
+    test_metaclass (typing_tests.GeneralTest)
+    Testing that in some situations, some exceptions will not be raised as expected. ... ok
+
+    ======================================================================
+    FAIL: test_equal_with_typing (typing_tests.GeneralTest)
+    The existing typing.Union and | syntax should be equivalent.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/union_tests/typing_tests.py", line 26, in test_equal_with_typing
+        self.assertEqual(str(int | int), "int")
+    AssertionError: "<class 'int'>" != 'int'
+    - <class 'int'>
+    + int
+
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    FAILED (failures=1)
+
+Pypy:
+    test_equal_with_typing (typing_tests.GeneralTest)
+    The existing typing.Union and | syntax should be equivalent. ... ERROR
+    test_isinstance (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to isinstance as long as the Union ... ERROR
+    test_issubclass (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to issubclass as long as the Union ... ERROR
+    test_metaclass (typing_tests.GeneralTest)
+    Testing that in some situations, some exceptions will not be raised as expected. ... ok
+
+    ======================================================================
+    ERROR: test_equal_with_typing (typing_tests.GeneralTest)
+    The existing typing.Union and | syntax should be equivalent.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/union_tests/typing_tests.py", line 15, in test_equal_with_typing
+        self.assertEqual(Union[int, int], int | int)
+    TypeError: unsupported operand type(s) for |: 'type' and 'type'
+
+    ======================================================================
+    ERROR: test_isinstance (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to isinstance as long as the Union
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/union_tests/typing_tests.py", line 34, in test_isinstance
+        self.assertTrue(isinstance("", int | str))
+    TypeError: unsupported operand type(s) for |: 'type' and 'type'
+
+    ======================================================================
+    ERROR: test_issubclass (typing_tests.GeneralTest)
+    Testing that new syntax supports for calls to issubclass as long as the Union
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/union_tests/typing_tests.py", line 45, in test_issubclass
+        self.assertTrue(issubclass(bool, int | str))
+    TypeError: unsupported operand type(s) for |: 'type' and 'type'
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.001s
+
+    FAILED (errors=3)

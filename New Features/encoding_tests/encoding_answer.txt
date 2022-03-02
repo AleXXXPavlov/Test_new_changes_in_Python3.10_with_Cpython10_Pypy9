@@ -1,0 +1,88 @@
+tested:
+    Text Encoding
+    --------------------------------------------------------------------------
+    The default encoding of TextIOWrapper and open() is locale-specific
+
+run:
+    python -X warn_default_encoding encoding_run.py
+
+expected:
+    test_locale (open_tests.OpenTest)
+    A "locale" argument value is explicitly specifies that the locale encoding ... ok
+    test_warning (open_tests.OpenTest)
+    Testing new EncodingWarning it is emitted when the encoding ... ok
+    test_locale (text_io_wrapper_tests.TextIoWrapperTest)
+    A "locale" argument value is explicitly specifies that the locale encoding ... ok
+    test_warning (text_io_wrapper_tests.TextIoWrapperTest)
+    Testing new EncodingWarning it is emitted when the encoding ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.002s
+
+    OK
+
+Cpython:
+    test_locale (open_tests.OpenTest)
+    A "locale" argument value is explicitly specifies that the locale encoding ... ok
+    test_warning (open_tests.OpenTest)
+    Testing new EncodingWarning it is emitted when the encoding ... ok
+    test_locale (text_io_wrapper_tests.TextIoWrapperTest)
+    A "locale" argument value is explicitly specifies that the locale encoding ... ok
+    test_warning (text_io_wrapper_tests.TextIoWrapperTest)
+    Testing new EncodingWarning it is emitted when the encoding ... ok
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.002s
+
+    OK
+
+Pypy:
+    test_locale (open_tests.OpenTest)
+    A "locale" argument value is explicitly specifies that the locale encoding ... ERROR
+    test_warning (open_tests.OpenTest)
+    Testing new EncodingWarning it is emitted when the encoding ... ERROR
+    test_locale (text_io_wrapper_tests.TextIoWrapperTest)
+    A "locale" argument value is explicitly specifies that the locale encoding ... ERROR
+    test_warning (text_io_wrapper_tests.TextIoWrapperTest)
+    Testing new EncodingWarning it is emitted when the encoding ... ERROR
+
+    ======================================================================
+    ERROR: test_locale (open_tests.OpenTest)
+    A "locale" argument value is explicitly specifies that the locale encoding
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/encoding_tests/open_tests.py", line 25, in test_locale
+        with open("date/example.txt", encoding="locale", mode="w") as file:
+    LookupError: unknown encoding: locale
+
+    ======================================================================
+    ERROR: test_warning (open_tests.OpenTest)
+    Testing new EncodingWarning it is emitted when the encoding
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/encoding_tests/open_tests.py", line 14, in test_warning
+        with self.assertWarns(EncodingWarning):
+    NameError: name 'EncodingWarning' is not defined
+
+    ======================================================================
+    ERROR: test_locale (text_io_wrapper_tests.TextIoWrapperTest)
+    A "locale" argument value is explicitly specifies that the locale encoding
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/encoding_tests/text_io_wrapper_tests.py", line 25, in test_locale
+        with io.TextIOWrapper(buff, encoding="locale") as wp_stream:
+    LookupError: unknown encoding: locale
+
+    ======================================================================
+    ERROR: test_warning (text_io_wrapper_tests.TextIoWrapperTest)
+    Testing new EncodingWarning it is emitted when the encoding
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/encoding_tests/text_io_wrapper_tests.py", line 14, in test_warning
+        with self.assertWarns(EncodingWarning):
+    NameError: name 'EncodingWarning' is not defined
+
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.002s
+
+    FAILED (errors=4)

@@ -1,0 +1,58 @@
+tested:
+    zip
+    --------------------------------------------------------------------------
+    Add Optional Length-Checking - strict
+
+run:
+    python zip_run.py
+
+expected:
+    test_with_strict (zip_tests.OptionalParamTest)
+    Testing with new optional length-checking in zip() classes. ... ok
+    test_without_strict (zip_tests.OptionalParamTest)
+    Testing without new optional length-checking in zip() classes. ... ok
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.000s
+
+    OK
+
+Cpython:
+    test_with_strict (zip_tests.OptionalParamTest)
+    Testing with new optional length-checking in zip() classes. ... ok
+    test_without_strict (zip_tests.OptionalParamTest)
+    Testing without new optional length-checking in zip() classes. ... ok
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.000s
+
+    OK
+
+Pypy:
+    test_with_strict (zip_tests.OptionalParamTest)
+    Testing with new optional length-checking in zip() classes. ... ERROR
+    test_without_strict (zip_tests.OptionalParamTest)
+    Testing without new optional length-checking in zip() classes. ... ERROR
+
+    ======================================================================
+    ERROR: test_with_strict (zip_tests.OptionalParamTest)
+    Testing with new optional length-checking in zip() classes.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/zip_tests/zip_tests.py", line 16, in test_with_strict
+        zip_obj = list(zip(lst1, lst2, strict=True))
+    TypeError: zip() takes no keyword arguments
+
+    ======================================================================
+    ERROR: test_without_strict (zip_tests.OptionalParamTest)
+    Testing without new optional length-checking in zip() classes.
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/home/sasha_pavlov/Work_mb/Pavlov_testtask/pythonProject/New Features/zip_tests/zip_tests.py", line 24, in test_without_strict
+        zip_lst = list(zip(lst, lst, strict=False))
+    TypeError: zip() takes no keyword arguments
+
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.001s
+
+    FAILED (errors=2)
